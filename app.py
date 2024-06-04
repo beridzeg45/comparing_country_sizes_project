@@ -13,15 +13,15 @@ plt.style.use('ggplot')
 world = gpd.read_file("world-administrative-boundaries/world-administrative-boundaries.shp")
 
 default_selected_countries = ['Georgia', 'Ukraine']
-colors = ['red', 'orange','lawngreen','deepskyblue','pink']
+colors = ['red', 'orange','lawngreen','deepskyblue','pink','grey','olive','purple','aqua','lavender']
 
 def return_geopandas_graph(selected_countries):
     fig1, ax1 = plt.subplots(figsize=(8, 8))
     fig2, ax2 = plt.subplots(figsize=(8, 5))
     areas = []
 
-    if len(selected_countries) > 5:
-        st.error('Please select no more than 5 countries')
+    if len(selected_countries) > 10:
+        st.error('Please select no more than 10 countries')
         return None, None
 
     for i, selected_country in enumerate(selected_countries):
