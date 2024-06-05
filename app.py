@@ -53,7 +53,7 @@ def return_geopandas_graph(selected_countries):
         country_df.plot(ax=ax1, edgecolor='black', color=colors[i % len(colors)], alpha=.5)
 
         ax1.set_title(f"Country Sizes Compared: {', '.join(selected_countries)}", fontweight='bold',size=10)
-        #ax1.axis('off')
+        ax1.axis('off')
 
         #dealing with individual boundaries
         #if 'United States of America' in selected_countries:
