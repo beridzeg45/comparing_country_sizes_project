@@ -57,7 +57,7 @@ def return_geopandas_graph(selected_countries):
 
         #dealing with individual boundaries
         if 'United States of America' in selected_countries:
-            ax1.set_xlim(-0.5,0,5)
+            ax1.set_xlim(-0.5,0.5)
             ax1.set_ylim(-3,3)
         #if 'Russian Federation' in selected_countries:
             #ax1.set_xlim(-80,80)
