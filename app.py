@@ -61,7 +61,7 @@ def return_geopandas_graph(selected_countries):
             ax1.set_ylim(-2.5*10**6,3*10**6)
         if 'Russian Federation' in selected_countries:
             ax1.set_xlim(-5*10**6,7*10**6)
-            ax1.set_ylim(-2*10**6,2*10**6)
+            ax1.set_ylim(-2.5*10**6,3*10**6)
 
 
     ax2.bar(selected_countries, areas, color=colors[:len(selected_countries)])
