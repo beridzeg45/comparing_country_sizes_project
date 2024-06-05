@@ -57,11 +57,11 @@ def return_geopandas_graph(selected_countries):
 
         #dealing with individual boundaries
         if 'United States of America' in selected_countries:
-            ax1.set_xlim(-55,55)
-            ax1.set_ylim(-40,40)
+            #ax1.set_xlim(-55,55)
+            #ax1.set_ylim(-40,40)
         if 'Russian Federation' in selected_countries:
-            ax1.set_xlim(-80,80)
-            ax1.set_ylim(-60,60)
+            #ax1.set_xlim(-80,80)
+            #ax1.set_ylim(-60,60)
 
 
     ax2.bar(selected_countries, areas, color=colors[:len(selected_countries)])
