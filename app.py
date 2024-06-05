@@ -9,7 +9,7 @@ import os
 warnings.filterwarnings('ignore')
 plt.style.use('ggplot')
 
-# Load the world shapefile
+# load the world shapefile
 world = gpd.read_file("world-administrative-boundaries/world-administrative-boundaries.shp")
 
 default_selected_countries = ['Georgia', 'Ukraine']
@@ -24,15 +24,13 @@ def return_geopandas_graph(selected_countries):
         st.error('Please select no more than 10 countries')
         return None, None
 
-    world_equal_area = world.to_crs('+proj=moll')
-
     for i, selected_country in enumerate(selected_countries):
-        country_df = world_equal_area[world_equal_area['name'] == selected_country]
+        country_df = world[world['name'] == selected_country]
 
         if country_df.empty:
             continue
 
-        area = int(country_df.geometry.area.iloc[0] / 10**6)
+        area = int(country_df.to_crs(epsg=6933).geometry.area.iloc[0] / 10**6)
         areas.append(area)
 
         if i == 0:
@@ -40,7 +38,7 @@ def return_geopandas_graph(selected_countries):
             example_x = example.geometry.centroid.iloc[0].x
             example_y = example.geometry.centroid.iloc[0].y
         if 'United States of America' or 'Russian Federation' in selected_countries:
-            example_x, example_y = 0, 0
+            example_x,example_y=0,0
 
         country_x = country_df.geometry.centroid.iloc[0].x
         country_y = country_df.geometry.centroid.iloc[0].y
@@ -52,23 +50,24 @@ def return_geopandas_graph(selected_countries):
         country_df.geometry = country_translated
         country_df.plot(ax=ax1, edgecolor='black', color=colors[i % len(colors)], alpha=.5)
 
-        ax1.set_title(f"Country Sizes Compared: {', '.join(selected_countries)}", fontweight='bold', size=10)
+        ax1.set_title(f"Country Sizes Compared: {', '.join(selected_countries)}", fontweight='bold',size=10)
         ax1.axis('off')
 
-        # Dealing with individual boundaries
+        #dealing with individual boundaries
         if 'United States of America' in selected_countries:
-            ax1.set_xlim(-55, 55)
-            ax1.set_ylim(-40, 40)
+            ax1.set_xlim(-55,55)
+            ax1.set_ylim(-40,40)
         if 'Russian Federation' in selected_countries:
-            ax1.set_xlim(-80, 80)
-            ax1.set_ylim(-60, 60)
+            ax1.set_xlim(-80,80)
+            ax1.set_ylim(-60,60)
+
 
     ax2.bar(selected_countries, areas, color=colors[:len(selected_countries)])
     ax2.set_ylabel('km²')
-    ax2.set_title('Country Sizes Compared Using Bar Chart', fontweight='bold', size=10)
+    ax2.set_title('Country Sizes Compared Using Bar Chart', fontweight='bold',size=10)
     for i in range(len(selected_countries)):
-        ax2.text(i, areas[i], f'{areas[i]:,} km²', ha='center', va='bottom', size=8, fontweight='bold', rotation=0)
-    ax2.tick_params(axis='x', labelsize=8, rotation=45)
+        ax2.text(i, areas[i], f'{areas[i]:,} km2', ha='center', va='bottom', size=8,fontweight='bold',rotation=0)
+    ax2.tick_params(axis='x', labelsize=8,rotation=45)
     return fig1, fig2
 
 # Streamlit app
@@ -76,7 +75,7 @@ st.set_page_config(layout="wide")
 st.header('Comparing Country Sizes 🌍- Python Project By Giorgi Beridze')
 st.subheader('Visit my [GitHub](https://github.com/beridzeg45) account for code')
 
-selected_countries = st.multiselect(label='Select Countries', options=[''] + list(world['name'].unique()), default=default_selected_countries, label_visibility="hidden")
+selected_countries = st.multiselect(label='Select Countries', options=[''] + list(world['name'].unique()), default=default_selected_countries,label_visibility="hidden")
 fig1, fig2 = return_geopandas_graph(selected_countries)
 
 if fig1 and fig2:
@@ -84,4 +83,4 @@ if fig1 and fig2:
     with col1:
         st.pyplot(fig1)  
     with col2:
-        st.pyplot(fig2)
+        st.pyplot(fig2)  
