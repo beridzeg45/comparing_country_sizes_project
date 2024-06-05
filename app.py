@@ -24,7 +24,7 @@ def return_geopandas_graph(selected_countries):
         st.error('Please select no more than 10 countries')
         return None, None
 
-    world_equal_area = world.to_crs('epsg:4326')#'(+proj=aea +lat_1=20 +lat_2=50 +lon_0=0')#'+proj=moll')
+    world_equal_area = world.to_crs('+proj=moll')#'(+proj=aea +lat_1=20 +lat_2=50 +lon_0=0')#'+proj=moll')
 
     for i, selected_country in enumerate(selected_countries):
         country_df = world_equal_area[world_equal_area['name'] == selected_country]
