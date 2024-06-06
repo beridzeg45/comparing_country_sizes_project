@@ -12,7 +12,7 @@ plt.style.use('ggplot')
 # load the world shapefile
 world = gpd.read_file("world-administrative-boundaries/world-administrative-boundaries.shp")
 
-default_selected_countries = ['Georgia', 'Ireland','Iceland']
+default_selected_countries = ['Georgia','Iceland']
 colors = ['deepskyblue', 'orange','lawngreen','red','pink','grey','olive','purple','aqua','lavender']
 
 def return_geopandas_graph(selected_countries):
