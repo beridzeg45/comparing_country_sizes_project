@@ -57,7 +57,7 @@ def return_geopandas_graph(selected_countries):
 
         country_translated = country_df.geometry.apply(lambda geom: translate(geom, xoff=x_offset, yoff=y_offset))
         country_df.geometry = country_translated
-        country_df.plot(ax=ax1, edgecolor='black', color=colors[i % len(colors)], alpha=.5)
+        country_df.plot(ax=ax1, edgecolor='black', color=colors[i % len(colors)], alpha=.7)
 
         ax1.set_title(f"Country Sizes Compared: {', '.join(selected_countries)}", fontweight='bold',size=10,color='white')
         ax1.axis('off')
