@@ -20,13 +20,6 @@ def return_geopandas_graph(selected_countries):
     fig2, ax2 = plt.subplots(figsize=(8, 5))
     areas = []
 
-    ax1.set_facecolor('black')  # Set the axis background color to black
-    fig1.patch.set_facecolor('black')  # Set the figure background color to black
-
-    # Set background color for bar chart plot (fig2)
-    ax2.set_facecolor('black')  # Set the axis background color to black
-    fig2.patch.set_facecolor('black')  # Set the figure background color to black
-
     if len(selected_countries) > 10:
         st.error('Please select no more than 10 countries')
         return None, None
