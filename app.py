@@ -76,7 +76,7 @@ def return_geopandas_graph(selected_countries):
     ax2.set_yticklabels([])
     ax2.set_title('Country Sizes Compared Using Bar Chart', fontweight='bold',size=10,color='white')
     for i in range(len(selected_countries)):
-        ax2.text(i, areas[i], f'{areas[i]:,} km2', ha='center', va='bottom', size=8,fontweight='bold',rotation=0,color='white')
+        ax2.text(i, areas[i], f'{areas[i]:,} km2', ha='center', va='bottom', size=8 if len(selected_countries)<=5 else 5 ,fontweight='bold',rotation=0,color='white')
     ax2.tick_params(axis='x', labelsize=8,rotation=45,color='white')
     ax2.set_xticklabels(selected_countries,color='white')
     ax2.grid(False) 
