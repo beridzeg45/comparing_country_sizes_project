@@ -8,6 +8,7 @@ import os
 
 warnings.filterwarnings('ignore')
 plt.style.use('ggplot')
+plt.gca().set_facecolor('black')
 
 # load the world shapefile
 world = gpd.read_file("world-administrative-boundaries/world-administrative-boundaries.shp")
