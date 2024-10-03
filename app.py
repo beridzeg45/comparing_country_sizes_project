@@ -59,7 +59,7 @@ def return_geopandas_graph(selected_countries):
         country_df.geometry = country_translated
         country_df.plot(ax=ax1, edgecolor='black', color=colors[i % len(colors)], alpha=.5)
 
-        ax1.set_title(f"Country Sizes Compared: {', '.join(selected_countries)}", fontweight='bold',size=10)
+        ax1.set_title(f"Country Sizes Compared: {', '.join(selected_countries)}", fontweight='bold',size=10,color='White)
         ax1.axis('off')
 
         #dealing with individual boundaries
@@ -73,7 +73,7 @@ def return_geopandas_graph(selected_countries):
 
     ax2.bar(selected_countries, areas, color=colors[:len(selected_countries)])
     ax2.set_ylabel('km²')
-    ax2.set_title('Country Sizes Compared Using Bar Chart', fontweight='bold',size=10)
+    ax2.set_title('Country Sizes Compared Using Bar Chart', fontweight='bold',size=10,color='White)
     for i in range(len(selected_countries)):
         ax2.text(i, areas[i], f'{areas[i]:,} km2', ha='center', va='bottom', size=8,fontweight='bold',rotation=0)
     ax2.tick_params(axis='x', labelsize=8,rotation=45)
