@@ -72,13 +72,20 @@ def return_geopandas_graph(selected_countries):
 
 
     ax2.bar(selected_countries, areas, color=colors[:len(selected_countries)])
-    ax2.set_ylabel('km²',color='white')
+    #ax2.set_ylabel('km²',color='white')
+    ax2.set_yticklabels([])
     ax2.set_title('Country Sizes Compared Using Bar Chart', fontweight='bold',size=10,color='white')
     for i in range(len(selected_countries)):
         ax2.text(i, areas[i], f'{areas[i]:,} km2', ha='center', va='bottom', size=8,fontweight='bold',rotation=0,color='white')
     ax2.tick_params(axis='x', labelsize=8,rotation=45,color='white')
     ax2.set_xticklabels(selected_countries,color='white')
     ax2.grid(False) 
+    
+    # Remove spines (borders) for ax2
+    ax2.spines['top'].set_visible(False)
+    ax2.spines['right'].set_visible(False)
+    ax2.spines['left'].set_visible(False)
+    ax2.spines['bottom'].set_visible(False)
     return fig1, fig2
 
 # Streamlit app
