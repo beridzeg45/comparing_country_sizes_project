@@ -20,12 +20,12 @@ def return_geopandas_graph(selected_countries):
     fig2, ax2 = plt.subplots(figsize=(8, 5))
     areas = []
 
-    ax1.set_facecolor('black')  # Set the axis background color to black
-    fig1.patch.set_facecolor('black')  # Set the figure background color to black
+    ax1.set_facecolor('black')
+    fig1.patch.set_facecolor('black')  
 
-    # Set background color for bar chart plot (fig2)
-    ax2.set_facecolor('black')  # Set the axis background color to black
-    fig2.patch.set_facecolor('black')  # Set the figure background color to black
+    
+    ax2.set_facecolor('black')  
+    fig2.patch.set_facecolor('black') 
 
     if len(selected_countries) > 10:
         st.error('Please select no more than 10 countries')
@@ -78,6 +78,7 @@ def return_geopandas_graph(selected_countries):
         ax2.text(i, areas[i], f'{areas[i]:,} km2', ha='center', va='bottom', size=8,fontweight='bold',rotation=0,color='white')
     ax2.tick_params(axis='x', labelsize=8,rotation=45,color='white')
     ax2.set_xticklabels(selected_countries,color='white')
+    ax2.grid(False) 
     return fig1, fig2
 
 # Streamlit app
