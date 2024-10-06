@@ -16,7 +16,7 @@ default_selected_countries = ['Georgia','Iceland']
 colors = ['deepskyblue', 'orange','lawngreen','red','pink','grey','olive','purple','aqua','lavender']
 
 def return_geopandas_graph(selected_countries):
-    fig1, ax1 = plt.subplots(figsize=(8, 10))
+    fig1, ax1 = plt.subplots(figsize=(8, 5))
     fig2, ax2 = plt.subplots(figsize=(8, 5))
     areas = []
 
