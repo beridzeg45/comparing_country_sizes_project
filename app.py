@@ -20,8 +20,8 @@ def return_geopandas_graph(selected_countries):
     fig2, ax2 = plt.subplots(figsize=(8, 5))
     areas = []
 
-    ax1.set_facecolor('black')
-    fig1.patch.set_facecolor('black')  
+    ax1.set_facecolor((14, 17, 23))
+    fig1.patch.set_facecolor((14, 17, 23))  
 
     
     ax2.set_facecolor('black')  
